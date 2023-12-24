@@ -1,0 +1,95 @@
+#active, #completed, #in-progress { 
+  width: 100%;
+  height: calc(100vh / 3);
+  border: solid 1px #706F6F;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding-left: 10px;
+}
+
+#active:hover, #completed:hover, #in-progress:hover { 
+  overflow-x: auto;
+}
+
+#active::-webkit-scrollbar, #completed::-webkit-scrollbar, #in-progress::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.card {
+  height: 78%;
+  width: 17%;
+  display: inline-block;
+  margin-right: 3%;
+  float: none;
+  white-space: wrap;
+  position: relative;
+}
+
+#active .card {
+  border: #86A789 3px solid;
+}
+
+#in-progress .card {
+  border: #FF9292 3px solid;
+}
+
+#completed .card {
+  border: #8294C4 3px solid;
+}
+
+#active .btn-primary {
+  background-color: #B2C8BA;
+  border: #86A789 3px solid;
+}
+
+#active .btn-primary:active {
+  border-color: #EBF3E8;
+}
+
+#in-progress .btn-primary {
+  background-color: #FFB4B4;
+  border: #FF9292 3px solid;
+}
+
+#completed .btn-primary {
+  background-color: #ACB1D6;
+  border: #8294C4 3px solid;
+}
+
+.top-button {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+}
+
+.bot-button { 
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+
+body h1 {
+  position: sticky;
+  left: 0;
+}
+
+.card-text { 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.display-6 { 
+  font-size: 30px;
+}
+
+.card-title {
+  font-size: 14px;
+}
+
+.display-6 { 
+  font-weight: 600;
+}
