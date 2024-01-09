@@ -4,7 +4,30 @@ const inputPassword = document.getElementById("exampleInputPassword1");
 const inputPasswordAdmin = document.getElementById("exampleInputPasswordAdmin");
 const errorLabel = document.getElementById("error-label");
 
-const REGISTER_URL = "http://localhost:5000/auth/registration";
+const REGISTER_URL = "http://localhost:5000/auth";
+
+const checkValidToken = async () => {
+  if (token) {
+    const res = await fetch(`${LOGGIN_URL}/whoami/${token}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (res.ok) {
+      const { role } = await res.json();
+      if (role == "user") {
+        window.location.href = "../userMainPage/userMainPage.html";
+      } else {
+        window.location.href = "../adminMainPage/adminMainPage.html";
+      }
+    } else {
+      return;
+    }
+  }
+};
+
+// checkValidToken();
 
 const changePage = async () => {
   try {
@@ -14,7 +37,7 @@ const changePage = async () => {
       role: inputPasswordAdmin.value,
     };
 
-    const res = await fetch(REGISTER_URL, {
+    const res = await fetch(`${REGISTER_URL}/registration`, {
       method: "POST",
       body: JSON.stringify(value),
       headers: {
@@ -23,6 +46,7 @@ const changePage = async () => {
     });
     if(res.ok) {
     const { token, role } = await res.json();
+    console.log(token);
       localStorage.setItem("token", token);
       if(role == 'user') {
         window.location.href = "../userMainPage/userMainPage.html";

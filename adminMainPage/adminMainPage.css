@@ -71,3 +71,13 @@
   white-space: normal;
   word-break: break-all;
 }
+
+.input-group {
+  width: 80%;
+  margin: auto;
+}
+
+.user-list {
+  width: 80%;
+  margin: auto;
+}
